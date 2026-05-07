@@ -1,5 +1,5 @@
-const NOME = "Gabriel Assis";
-let tituloProfissional = "Desenvolverdor";
+const NOME = "Gabriel Vinícius Assis da Silva";
+let tituloProfissional = "Desenvolvedor";
 let minhaBio = "Sou um cara esforçado";
 let anoFormatura = 2026;
 let anoIgresso = 2025;
@@ -31,7 +31,6 @@ const tempoDecorrido = DATAATUAL - dataInicio;
 let porcentagem = (tempoDecorrido / tempoTotal) * 100;
 porcentagem = Math.min(Math.max(porcentagem, 0), 100).toFixed(2);
 
-
 console.log(typeof nulo);
 console.log(typeof indefinido);
 console.log(typeof anoIgresso);
@@ -44,7 +43,98 @@ console.log(typeof curso);
 document.getElementById("meuNome").innerText = NOME;
 document.getElementById("tituloProfissional").innerText = `Profissão: ${tituloProfissional}`;
 document.getElementById("minhaBio").innerText = `Biografia: ${minhaBio}`;
+document.getElementById("curso").innerText = `Curso: ${curso.nome}`;
 document.getElementById("anoIgresso").innerText = `Ano de Igresso: ${anoIgresso}`;
 document.getElementById("anoFormatura").innerText = `Ano da Formatura: ${anoFormatura}`;
-document.getElementById("curso").innerText = `Curso: ${curso.nome}`;
-document.getElementById("tempoRestanteParaFormatura").innerText = `Tempo restante para formatura: ${anoFormatura - anoAtual} anos, ${mesFormatura - mesAtual} meses e ${diaFormatura - diaAtual} dias. Progresso: ${porcentagem}% concluído.`;
+// document.getElementById("tempoRestanteParaFormatura").innerText = `Tempo restante para formatura: ${anoFormatura - anoAtual} anos, ${mesFormatura - mesAtual} meses e ${diaFormatura - diaAtual} dias. Progresso: ${porcentagem}% concluído.`;
+
+let anosRestantes = anoFormatura - anoAtual;
+let mesesRestantes = mesFormatura - mesAtual;
+let diasRestantes = diaFormatura - diaAtual;
+
+let elementoTexto = document.getElementById("tempoRestanteParaFormatura");
+
+if (porcentagem >= 100) {
+    elementoTexto.innerText = "Curso concluído, formado!";
+    
+} else if (anosRestantes >= 1) {
+    elementoTexto.innerText = `Tempo restante para formatura: ${anosRestantes} anos, ${mesesRestantes} meses e ${diasRestantes} dias. Progresso: ${porcentagem}% concluído.`;
+    
+} else {
+    elementoTexto.innerText = `Tempo restante para formatura: ${mesesRestantes} meses e ${diasRestantes} dias. Progresso: ${porcentagem}% concluído.`;
+}
+
+let nota = 8; 
+let aprovado = (nota >= 6)? "Aprovado" : "Reprovado";
+
+document.write(`<p> Nota: ${nota} - ${aprovado} </p>`);
+let diaSemana = DATAATUAL.getDay() + 1; 
+
+let diaEscrito;
+
+switch (diaSemana) {
+    case 1: diaEscrito = "Domingo"; break;
+    case 2: diaEscrito = "Segunda-feira"; break;
+    case 3: diaEscrito = "Terça-feira"; break;
+    case 4: diaEscrito = "Quarta-feira"; break;
+    case 5: diaEscrito = "Quinta-feira"; break;
+    case 6: diaEscrito = "Sexta-feira"; break;
+    case 7: diaEscrito = "Sábado"; break;
+    default: diaEscrito = "Dia inválido";
+}
+
+document.write(`<p> Hoje é: ${diaEscrito} </p>`);
+
+const btnVisual      = document.getElementById("btn-visual");
+const btnLogica      = document.getElementById("btn-logica");
+const resultadoQuiz  = document.getElementById("resultado-quiz");
+
+btnVisual.addEventListener("click", function() {
+  
+  resultadoQuiz.innerHTML = `
+    <strong>🎨 Você tem perfil Front-End!</strong><br>
+    Você curte criar interfaces, trabalhar com cores, layouts e a experiência do usuário.
+    Tecnologias pra você: HTML, CSS, React, Vue.
+  `;
+  resultadoQuiz.style.backgroundColor = "#e8f4fd";
+  resultadoQuiz.style.padding          = "12px";
+  resultadoQuiz.style.borderRadius     = "8px";
+  resultadoQuiz.style.marginTop        = "10px";
+});
+
+btnLogica.addEventListener("click", function() {
+  
+  resultadoQuiz.innerHTML = `
+    <strong>⚙️ Você tem perfil Back-End!</strong><br>
+    Você curte resolver problemas complexos, trabalhar com dados e fazer a mágica acontecer nos bastidores.
+    Tecnologias pra você: Node.js, Python, bancos de dados.
+  `;
+  resultadoQuiz.style.backgroundColor = "#e8f8f0";
+  resultadoQuiz.style.padding          = "12px";
+  resultadoQuiz.style.borderRadius     = "8px";
+  resultadoQuiz.style.marginTop        = "10px";
+});
+
+
+let pontosFront  = 0;
+let pontosBack   = 0;
+
+btnVisual.addEventListener("click", function() {
+  pontosFront++;
+  exibirPerfil();
+});
+
+btnLogica.addEventListener("click", function() {
+  pontosBack++;
+  exibirPerfil();
+});
+
+function exibirPerfil() {
+  if (pontosFront > pontosBack) {
+    resultadoQuiz.textContent = "🎨 Perfil Front-End!";
+  } else if (pontosBack > pontosFront) {
+    resultadoQuiz.textContent = "⚙️ Perfil Back-End!";
+  } else {
+    resultadoQuiz.textContent = "🔄 Perfil Full Stack — você é dos dois!";
+  }
+}
