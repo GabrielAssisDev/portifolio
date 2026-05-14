@@ -155,12 +155,14 @@ let projetos= [
   }
 ]
 
-const container = document.getElementById("container-projetos");
+const container = document.getElementById("projetos");
 
 for (let i = 0; i < projetos.length; i++) {
   const projeto = projetos[i];
   container.innerHTML += `
     <h2>${projeto.nome}</h2>
+    <p>${projeto.tecnologias}</p>
+    <p>${projeto.conhecimentos}</p>
     <p>${projeto.descricao}</p>
   `;
 }
