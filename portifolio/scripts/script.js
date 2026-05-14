@@ -138,3 +138,29 @@ function exibirPerfil() {
     resultadoQuiz.textContent = "🔄 Perfil Full Stack — você é dos dois!";
   }
 }
+
+let projetos= [
+  {
+    nome: "Aplicação de Estacionamento",
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    conhecimentos: "VsCode, GitHub, pip, PyInstaller,...",
+    descricao: "Aplicação de Estacionamento é um projeto que simula a gestão de um estacionamento, permitindo aos usuários registrar entradas e saídas de veículos, calcular tarifas e gerar relatórios. O projeto foi desenvolvido utilizando HTML, CSS e JavaScript para criar uma interface amigável e funcional. Além disso, o projeto envolveu o uso de ferramentas como VsCode para desenvolvimento, GitHub para controle de versão, pip para gerenciamento de dependências e PyInstaller para empacotamento da aplicação."
+  },
+
+  {
+    nome: "Aplicação de Controle de Estoque",
+    tecnologias: ["Python", "Tkinter", "fpdf"],
+    conhecimentos: "VsCode, GitHub, pip, PyInstaller,...",
+    descricao: "Aplicação de Controle de Estoque é um projeto que permite aos usuários gerenciar o estoque de uma loja ou empresa. A aplicação oferece funcionalidades para adicionar, editar e remover produtos, além de calcular o valor total do estoque e gerar relatórios. O projeto foi desenvolvido utilizando HTML, CSS e JavaScript para criar uma interface intuitiva e responsiva. Ferramentas como VsCode foram utilizadas para o desenvolvimento, GitHub para controle de versão, pip para gerenciamento de dependências e PyInstaller para empacotamento da aplicação."
+  }
+]
+
+const container = document.getElementById("container-projetos");
+
+for (let i = 0; i < projetos.length; i++) {
+  const projeto = projetos[i];
+  container.innerHTML += `
+    <h2>${projeto.nome}</h2>
+    <p>${projeto.descricao}</p>
+  `;
+}
