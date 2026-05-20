@@ -182,6 +182,28 @@ let projetos = [
     }
 ];
 
+const caixa = document.getElementById("caixa");
+  caixa.innerText = "Esse texto foi mudado pelo JS";
+
+const botao = document.getElementById("mudaTexto");
+
+botao.addEventListener("click", function() {
+  caixa.innerText = "Você mudou o texto clicando no botão!";
+  caixa.style.backgroundColor = "#f0a";
+});
+
+const input = document.getElementById("nome");
+
+const botaoEnviar = document.getElementById("enviar");
+
+botaoEnviar.addEventListener("click", function() {
+  let texto = input.value;
+  console.log(texto);
+  caixa.innerText = `Olá, ${texto}! Bem-vindo ao meu portfólio!`;
+  caixa.style.backgroundColor = "#0af";
+  input.value = "";
+});
+
 // --- INICIALIZAÇÃO AUTOMÁTICA ---
 carregarDadosDoPerfil();
 verificarStatusFormatura();
