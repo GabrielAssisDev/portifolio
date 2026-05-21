@@ -204,7 +204,97 @@ botaoEnviar.addEventListener("click", function() {
   input.value = "";
 });
 
+/// --- FUNÇÕES DA API DE LOCALIDADES (IBGE) ---
+
+function inicializarAPILocalidades() {
+    const selectEstado = document.getElementById("select-estado");
+    const selectCidade = document.getElementById("select-cidade");
+    const textoRegiao = document.getElementById("texto-regiao"); // Captura o novo elemento
+
+    if (!selectEstado || !selectCidade || !textoRegiao) return;
+
+    // 1. Carrega os estados ao iniciar
+    carregarEstados(selectEstado);
+
+// Função interna para atualizar a frase na tela
+function atualizarFraseSelecionada() {
+    const estadoNome = selectEstado.options[selectEstado.selectedIndex]?.text;
+    const cidadeNome = selectCidade.value;
+
+    if (selectEstado.value && cidadeNome) {
+         textoRegiao.innerText = `Você selecionou: ${cidadeNome} - ${selectEstado.value} (${estadoNome})`;
+    } else if (selectEstado.value) {
+        textoRegiao.innerText = `Estado selecionado: ${estadoNome}. Agora escolha a cidade.`;
+    } else {
+        textoRegiao.innerText = ""; // Limpa se nenhum estado for selecionado
+    }
+}
+
+// 2. Escuta a mudança do Estado
+selectEstado.addEventListener("change", function() {
+    const ufSelecionada = selectEstado.value;
+
+    if (ufSelecionada) {
+        carregarCidades(ufSelecionada, selectCidade);
+    } else {
+        selectCidade.innerHTML = '<option value="">Selecione um estado primeiro</option>';
+        selectCidade.disabled = true;
+    }
+    atualizarFraseSelecionada(); // Atualiza o texto do estado
+});
+
+// 3. Escuta a mudança da Cidade
+selectCidade.addEventListener("change", function() {
+    atualizarFraseSelecionada(); // Atualiza o texto final com a cidade
+});
+}
+
+// Função que procura todos os Estados na API
+function carregarEstados(elementoSelect) {
+    const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome";
+
+    fetch(url)
+        .then(resposta => resposta.json())
+        .then(estados => {
+            estados.forEach(estado => {
+                const option = document.createElement("option");
+                option.value = estado.sigla;     // Guarda a sigla (ex: MG, SP) como valor interno
+                option.textContent = estado.nome; // Mostra o nome completo no ecrã
+                elementoSelect.appendChild(option);
+            });
+        })
+        .catch(erro => console.error("Erro ao carregar estados:", erro));
+}
+
+// Função que procura as Cidades do Estado selecionado
+function carregarCidades(siglaUF, elementoSelect) {
+    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${siglaUF}/municipios`;
+
+    // Mensagem temporária enquanto os dados são descarregados
+    elementoSelect.innerHTML = '<option value="">A carregar cidades...</option>';
+    elementoSelect.disabled = true;
+
+    fetch(url)
+        .then(resposta => resposta.json())
+        .then(cidades => {
+            // Limpa a mensagem de carregamento e define a opção padrão
+            elementoSelect.innerHTML = '<option value="">Selecione uma cidade</option>';
+            
+            cidades.forEach(cidade => {
+                const option = document.createElement("option");
+                option.value = cidade.nome;
+                option.textContent = cidade.nome;
+                elementoSelect.appendChild(option);
+            });
+
+            // Ativa novamente a caixa de seleção para o utilizador escolher
+            elementoSelect.disabled = false;
+        })
+        .catch(erro => console.error("Erro ao carregar cidades:", erro));
+}
+
 // --- INICIALIZAÇÃO AUTOMÁTICA ---
 carregarDadosDoPerfil();
 verificarStatusFormatura();
 renderizarProjetos();
+inicializarAPILocalidades(); 

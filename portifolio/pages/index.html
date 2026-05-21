@@ -44,6 +44,29 @@
         <li>Item B</li>
         <li>Item C</li>
         </ul>
+
+        <section id="localidades">
+            <h2>Pesquisa de Municípios</h2>
+            <p>Selecione um estado para ver as suas cidades:</p>
+    
+            <div class="campo-selecao">
+                <label for="select-estado">Estado:</label>
+                <select id="select-estado">
+                    <option value="">Selecione um estado</option>
+            </select>
+            </div>
+
+            <div class="campo-selecao">
+                <label for="select-cidade">Cidade:</label>
+                <select id="select-cidade" disabled>
+                    <option value="">Selecione um estado primeiro</option>
+                </select>
+            </div>
+
+            <div id="resultado-localidade" style="margin-top: 15px; font-weight: bold;">
+                <p id="texto-regiao"></p>
+            </div>
+        </section>
     </main>
 
 
