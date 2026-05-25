@@ -4,71 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/style.css">
-    <title>Portifólio</title>
+    <title>Gabriel Vinícius | Portfólio</title>
 </head>
 <body>
 
-    <main>
-        <h1 id="meuNome"></h1>
-        <h2 id="tituloProfissional"></h2>
-        <p id="minhaBio"></p>
-        <p id="curso"></p>
-        <p id="anoIgresso"></p>
-        <p id="anoFormatura"></p>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#sobre" class="nav-link">Sobre</a>
+            <a href="#formacao" class="nav-link">Formação</a>
+            <a href="#experiencia" class="nav-link">Experiência</a>
+            <a href="#projetos" class="nav-link">Projetos</a>
+            <a href="#certificacoes" class="nav-link">Cursos</a> <a href="#habilidades" class="nav-link">Habilidades</a>
+        </div>
+    </header>
 
-        <p id="tempoRestanteParaFormatura"></p>
-
-        <section id="quiz">
-            <h2>Descubra seu perfil dev</h2>
-            <p>Você prefere trabalhar com...</p>
-    
-            <button id="btn-visual">🎨 Visual e design</button>
-            <button id="btn-logica">⚙️ Lógica e dados</button>
-    
-            <div id="resultado-quiz"></div>
-        </section>
-            <div id="projetos"></div>
-
-        <button id="mudaTexto">Clique aqui para mudar o texto.</button>
+    <main class="site-container">
         
-        <p class="paragrafo"> Parágrafo 1 </p>
-        <p class="paragrafo"> Parágrafo 2 </p>
-        <p class="paragrafo"> Parágrafo 3 </p>
-
-        <div id="caixa"> Sou uma caixa </div>
-        <input type="text" id="nome" name="usuario" placeholder="Digite seu nome aqui">
-        <button id="enviar">Enviar</button>
-
-        <ul>
-        <li>Item A</li>
-        <li>Item B</li>
-        <li>Item C</li>
-        </ul>
-
-        <section id="localidades">
-            <h2>Pesquisa de Municípios</h2>
-            <p>Selecione um estado para ver as suas cidades:</p>
-    
-            <div class="campo-selecao">
-                <label for="select-estado">Estado:</label>
-                <select id="select-estado">
-                    <option value="">Selecione um estado</option>
-            </select>
-            </div>
-
-            <div class="campo-selecao">
-                <label for="select-cidade">Cidade:</label>
-                <select id="select-cidade" disabled>
-                    <option value="">Selecione um estado primeiro</option>
-                </select>
-            </div>
-
-            <div id="resultado-localidade" style="margin-top: 15px; font-weight: bold;">
-                <p id="texto-regiao"></p>
-            </div>
+        <section id="perfil-topo">
+            <img src="../img/foto_perfil.png" alt="Foto de Gabriel Vinícius" id="foto-perfil">
+            <h1 id="meuNome"></h1>
+            <h2 id="tituloProfissional"></h2>
         </section>
-    </main>
 
+        <section id="sobre" class="secao-conteudo">
+            <h2>Resumo Profissional</h2>
+            <p id="resumoProfissional"></p>
+        </section>
+
+        <section id="formacao" class="secao-conteudo">
+            <h2>Formação Acadêmica</h2>
+            <div id="lista-formacao"></div>
+            <p id="tempoRestanteParaFormatura"></p>
+        </section>
+
+        <section id="experiencia" class="secao-conteudo">
+            <h2>Experiência Profissional</h2>
+            <div id="lista-experiencia"></div>
+        </section>
+
+        <section id="projetos" class="secao-conteudo">
+            <h2>Projetos em Destaque</h2>
+            <div id="cards-projetos-container"></div>
+        </section>
+
+        <section id="certificacoes" class="secao-conteudo">
+            <h2>Cursos e Certificações</h2>
+            <div id="lista-certificacoes"></div>
+        </section>
+
+        <section id="habilidades" class="secao-conteudo">
+            <h2>Habilidades e Competências</h2>
+            <ul id="lista-habilidades"></ul>
+        </section>
+
+        
+    </main>
+    
+    <footer class="site-footer">
+        <p>Developed by Gabriel Assis</p>
+    </footer>
 
     <script src="../scripts/script.js"></script>
 </body>

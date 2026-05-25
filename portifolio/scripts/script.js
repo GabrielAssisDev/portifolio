@@ -1,300 +1,226 @@
-const NOME = "Gabriel Vinícius Assis da Silva";
-let tituloProfissional = "Desenvolvedor";
-let minhaBio = "Sou um cara esforçado";
+// --- DADOS REAIS DO CURRÍCULO (FONTES DE VERDADE) ---
+const NOME = "Gabriel Vinícius de Assis da Silva";
+let tituloProfissional = "Estagiário de TI & Desenvolvedor de Sistemas / Dados";
+let resumoBio = "Sou um profissional em início de carreira na área de Tecnologia da Informação, atualmente atuando como estagiário de TI no Clube Indica (remoto). Tenho experiência prática em criação de landing pages com WordPress, análise e organização de dados no Google Sheets. Estou cursando graduação em Ciência de Dados e técnico em Desenvolvimento de Sistemas, além de possuir certificações em programação e SQL. Tenho facilidade em aprender novas tecnologias, sou proativo, organizado e gosto de resolver problemas de forma prática e colaborativa.";
+
+// Lista das suas duas formações atuais
+let formacoes = [
+    {
+        curso: "Graduação: Ciência de Dados",
+        instituicao: "Unicesumar",
+        status: "Em andamento"
+    },
+    {
+        curso: "Técnico: Desenvolvimento de Sistemas",
+        instituicao: "Proz Educação",
+        status: "Em andamento"
+    }
+];
+
+// Sua experiência na área técnica
+let experiencias = [
+    {
+        cargo: "Estagiário de TI",
+        empresa: "Clube Indica (Remoto)",
+        periodo: "09/2025 - Atual",
+        tarefas: [
+            "Criação e manutenção de landing pages utilizando WordPress.",
+            "Análise e organização de dados no Google Sheets.",
+            "Consultas e ajustes em bancos de dados.",
+            "Apoio à equipe em novos projetos de TI e testes de sistemas."
+        ]
+    }
+];
+
+// Seus projetos para a vitrine (Adicione aqui os links reais do seu GitHub)
+let meusProjetos = [
+    {
+        titulo: "Aplicação de Estacionamento",
+        descricao: "Sistema interativo desenvolvido para controle de entrada, saída e cálculo de permanência e tarifas de veículos em um estacionamento.",
+        tecnologias: ["Python", "Tkinter", "sqlite3"],
+        linkGithub: "https://github.com/GabrielAssisDev/pagamentos_py" 
+    },
+    {
+        titulo: "Site de uma Padaria",
+        descricao: "Software intuitivo e responsivo voltado para o gerenciamento de produtos, controle de quantidades em estoque e geração de relatórios práticos.",
+        tecnologias: ["HTML","CSS"],
+        linkGithub: "https://github.com/GabrielAssisDev/padaria_ebac" 
+    },
+    {
+        titulo: "Cadastro de Clientes",
+        descricao: "Software intuitivo e responsivo voltado para o gerenciamento de produtos, controle de quantidades em estoque e geração de relatórios práticos.",
+        tecnologias: ["Python"],
+        linkGithub: "https://github.com/GabrielAssisDev/agenda_de_dados.py" 
+    },
+    {
+        titulo: "WGRR Motors - Site Oficial",
+        descricao: "Software intuitivo e responsivo voltado para o gerenciamento de produtos, controle de quantidades em estoque e geração de relatórios práticos.",
+        tecnologias: ["HTML", "CSS", "JavaScript"],
+        linkGithub: "https://github.com/GabrielAssisDev/wgrr_motors_site_oficial" 
+    },
+    {
+        titulo: "Livros publicados em 2023",
+        descricao: "Lista de livros publicados pelo autor em 2023.",
+        tecnologias: ["Python"],
+        linkGithub: "https://github.com/GabrielAssisDev/books_of_publication_2023"
+    },
+    {
+        titulo: "Agenda de Dados",
+        descricao: "Sistema de cadastro de endereços, telefones e e-mails, com funcionalidades de cadastrar, editar e excluir.",
+        tecnologias: ["Python"],
+        linkGithub: "https://github.com/GabrielAssisDev/agenda_de_dados.py"
+    },
+];
+
+// Suas competências mapeadas do PDF
+let habilidadesTecnicas = [
+    "Python", "SQL (MySQL / SQL Server)", "Git / GitHub", 
+    "Noções de lógica de programação & Estrutura de dados", 
+    "WordPress", "Google Sheets / Pacote Office", "VS Code"
+];
+
+// Configuração do cálculo de formatura (Focado na conclusão do técnico em Dezembro/2026)
 let anoFormatura = 2026;
-let anoIgresso = 2025;
 let mesFormatura = 12;
 let diaFormatura = 31;
-let mesIgresso = 1;
-let diaIgresso = 15;
-let indefinido;
-let nulo = null;
-
-const DATAATUAL = new Date(); // data atual, biblioteca de data do JavaScript
-let mesAtual = DATAATUAL.getMonth() + 1; // pega o mês atual (adiciona 1 pois os meses começam em 0)
-let anoAtual = DATAATUAL.getFullYear(); // pega o ano atual
-let diaAtual = DATAATUAL.getDate(); // pega o dia atual
-
-let curso = {
-    nome: "Desenvolvimento de Sistemas",
-    duracao: "2 anos",
-    instituicao: "PROZ EDUCAÇÃO"
-};
-
-const dataInicio = new Date(anoIgresso, mesIgresso - 1, diaIgresso);
+const DATAATUAL = new Date();
 const dataFinal = new Date(anoFormatura, mesFormatura - 1, diaFormatura);
 
-const tempoTotal = dataFinal - dataInicio;
-const tempoDecorrido = DATAATUAL - dataInicio;
+// --- FUNÇÕES DE RENDERIZAÇÃO ---
 
-let porcentagem = (tempoDecorrido / tempoTotal) * 100;
-porcentagem = Math.min(Math.max(porcentagem, 0), 100).toFixed(2);
-
-// Exibindo os tipos de dados no console
-console.log(typeof nulo);
-console.log(typeof indefinido);
-console.log(typeof anoIgresso);
-console.log(typeof anoFormatura);
-console.log(typeof minhaBio);
-console.log(typeof tituloProfissional);
-console.log(typeof NOME);
-console.log(typeof curso);
-
-// --- FUNÇÕES DO PROJETO ---
-
-// 1. Função para carregar e exibir os dados do perfil no HTML
-function carregarDadosDoPerfil() {
+function carregarDadosProfissionais() {
+    // Injeta os dados de cabeçalho e resumo
     document.getElementById("meuNome").innerText = NOME;
-    document.getElementById("tituloProfissional").innerText = `Profissão: ${tituloProfissional}`;
-    document.getElementById("minhaBio").innerText = `Biografia: ${minhaBio}`;
-    document.getElementById("curso").innerText = `Curso: ${curso.nome}`;
-    document.getElementById("anoIgresso").innerText = `Ano de Igresso: ${anoIgresso}`;
-    document.getElementById("anoFormatura").innerText = `Ano da Formatura: ${anoFormatura}`;
+    document.getElementById("tituloProfissional").innerText = tituloProfissional;
+    document.getElementById("resumoProfissional").innerText = resumoBio;
+
+    // Renderiza a lista de Formações Acadêmicas
+    const containerFormacao = document.getElementById("lista-formacao");
+    containerFormacao.innerHTML = "";
+    formacoes.forEach(f => {
+        containerFormacao.innerHTML += `
+            <div class="item-formacao" style="margin-bottom: 12px;">
+                <strong>${f.curso}</strong> - <span>${f.instituicao}</span> (${f.status})
+            </div>
+        `;
+    });
+
+    // Renderiza a lista de Experiências Profissionais
+    const containerExperiencia = document.getElementById("lista-experiencia");
+    containerExperiencia.innerHTML = "";
+    experiencias.forEach(exp => {
+        let listaTarefas = exp.tarefas.map(t => `<li>${t}</li>`).join("");
+        containerExperiencia.innerHTML += `
+            <div class="card-experiencia" style="margin-bottom: 25px;">
+                <h3>${exp.cargo} na ${exp.empresa}</h3>
+                <small>${exp.periodo}</small>
+                <ul>${listaTarefas}</ul>
+            </div>
+        `;
+    });
+
+    // Renderiza as Habilidades como tags (chips) arredondadas
+    const containerHabilidades = document.getElementById("lista-habilidades");
+    containerHabilidades.innerHTML = "";
+    habilidadesTecnicas.forEach(hab => {
+        containerHabilidades.innerHTML += `<li class="tag-habilidade">${hab}</li>`;
+    });
 }
 
-// 2. Função para verificar e exibir o status/tempo restante da formatura
 function verificarStatusFormatura() {
+    let anoAtual = DATAATUAL.getFullYear();
+    let mesAtual = DATAATUAL.getMonth() + 1;
+    let diaAtual = DATAATUAL.getDate();
+
     let anosRestantes = anoFormatura - anoAtual;
     let mesesRestantes = mesFormatura - mesAtual;
     let diasRestantes = diaFormatura - diaAtual;
     let elementoTexto = document.getElementById("tempoRestanteParaFormatura");
 
-    if (porcentagem >= 100) {
-        elementoTexto.innerText = "Curso concluído, formado!";
+    if (DATAATUAL >= dataFinal) {
+        elementoTexto.innerText = "Formação Técnica concluída!";
     } else if (anosRestantes >= 1) {
-        elementoTexto.innerText = `Tempo restante para formatura: ${anosRestantes} anos, ${mesesRestantes} meses e ${diasRestantes} dias. Progresso: ${porcentagem}% concluído.`;
+        elementoTexto.innerText = `Tempo restante para conclusão do Técnico: ${anosRestantes} ano(s), ${mesesRestantes} mês(es) e ${diasRestantes} dia(s).`;
     } else {
-        elementoTexto.innerText = `Tempo restante para formatura: ${mesesRestantes} meses e ${diasRestantes} dias. Progresso: ${porcentagem}% concluído.`;
+        elementoTexto.innerText = `Tempo restante para conclusão do Técnico: ${mesesRestantes} mês(es) e ${diasRestantes} dia(s).`;
     }
 }
 
-// 3. Função para obter o nome do dia da semana (Usa Return e Switch)
-function obterNomeDoDia(numeroDoDia) {
-    switch (numeroDoDia) {
-        case 1: return "Domingo";
-        case 2: return "Segunda-feira";
-        case 3: return "Terça-feira";
-        case 4: return "Quarta-feira";
-        case 5: return "Quinta-feira";
-        case 6: return "Sexta-feira";
-        case 7: return "Sábado";
-        default: return "Dia inválido";
-    }
-}
-
-// 4. Função para renderizar os projetos dinamicamente no container
 function renderizarProjetos() {
-    const container = document.getElementById("projetos");
-    if (!container) return; // Segurança caso o elemento não exista no HTML ainda
-    
-    container.innerHTML = ""; // Limpa o container antes de renderizar
+    const containerProjetos = document.getElementById("cards-projetos-container");
+    if (!containerProjetos) return;
 
-    for (let i = 0; i < projetos.length; i++) {
-        const projeto = projetos[i];
-        container.innerHTML += `
-            <div class="projeto-card">
-                <h2>${projeto.nome}</h2>
-                <p><strong>Tecnologias:</strong> ${projeto.tecnologias.join(', ')}</p>
-                <p><strong>Ferramentas:</strong> ${projeto.conhecimentos}</p>
+    containerProjetos.innerHTML = "";
+
+    meusProjetos.forEach(projeto => {
+        let tagsTech = projeto.tecnologias.map(tech => `<span class="projeto-tag">${tech}</span>`).join("");
+
+        containerProjetos.innerHTML += `
+            <div class="card-projeto">
+                <h3>${projeto.titulo}</h3>
                 <p>${projeto.descricao}</p>
+                <div class="projeto-tags-container">${tagsTech}</div>
+                <a href="${projeto.linkGithub}" target="_blank" class="btn-projeto">Ver no GitHub</a>
             </div>
         `;
-    }
-}
-
-// --- LÓGICA DE EXECUÇÃO E EVENTOS ---
-
-// Exibindo nota e dia atual usando document.write (e a função obterNomeDoDia)
-let nota = 8; 
-let aprovado = (nota >= 6) ? "Aprovado" : "Reprovado";
-document.write(`<p> Nota: ${nota} - ${aprovado} </p>`);
-
-let diaSemana = DATAATUAL.getDay() + 1; 
-let diaEscrito = obterNomeDoDia(diaSemana);
-document.write(`<p> Hoje é: ${diaEscrito} </p>`);
-
-// Configuração do Quiz de Perfil Dev
-const btnVisual = document.getElementById("btn-visual");
-const btnLogica = document.getElementById("btn-logica");
-const resultadoQuiz = document.getElementById("resultado-quiz");
-
-let pontosFront = 0;
-let pontosBack = 0;
-
-if (btnVisual && btnLogica && resultadoQuiz) {
-    btnVisual.addEventListener("click", function() {
-        pontosFront++;
-        
-        resultadoQuiz.innerHTML = `
-            <strong>🎨 Você tem perfil Front-End!</strong><br>
-            Você curte criar interfaces, trabalhar com cores, layouts e a experiência do usuário.
-            Tecnologias pra você: HTML, CSS, React, Vue.
-        `;
-        estilizarResultadoQuiz("#e8f4fd");
-        exibirPerfilGeral();
-    });
-
-    btnLogica.addEventListener("click", function() {
-        pontosBack++;
-        
-        resultadoQuiz.innerHTML = `
-            <strong>⚙️ Você tem perfil Back-End!</strong><br>
-            Você curte resolver problemas complexos, trabalhar com dados e fazer a mágica acontecer nos bastidores.
-            Tecnologias pra você: Node.js, Python, bancos de dados.
-        `;
-        estilizarResultadoQuiz("#e8f8f0");
-        exibirPerfilGeral();
     });
 }
-
-function estilizarResultadoQuiz(corFundo) {
-    resultadoQuiz.style.backgroundColor = corFundo;
-    resultadoQuiz.style.padding = "12px";
-    resultadoQuiz.style.borderRadius = "8px";
-    resultadoQuiz.style.marginTop = "10px";
-}
-
-function exibirPerfilGeral() {
-    let perfilTexto = "";
-    if (pontosFront > pontosBack) {
-        perfilTexto = "<br><br><strong>Resultado Acumulado:</strong> Perfil predominantemente Front-End! 🎨";
-    } else if (pontosBack > pontosFront) {
-        perfilTexto = "<br><br><strong>Resultado Acumulado:</strong> Perfil predominantemente Back-End! ⚙️";
-    } else {
-        perfilTexto = "<br><br><strong>Resultado Acumulado:</strong> Perfil Full Stack equilibrado! 🔄";
-    }
-    resultadoQuiz.innerHTML += perfilTexto;
-}
-
-// Dados dos Projetos (Array de Objetos)
-let projetos = [
+// ARRAY DE CURSOS ADICIONAIS (Mapeados do seu currículo)
+let meusCursos = [
     {
-        nome: "Aplicação de Estacionamento",
-        tecnologias: ["HTML", "CSS", "JavaScript"],
-        conhecimentos: "VsCode, GitHub, pip, PyInstaller,...",
-        descricao: "Aplicação de Estacionamento é um projeto que simula a gestão de um estacionamento, permitindo aos usuários registrar entradas e saídas de veículos, calcular tarifas e gerar relatórios. O projeto foi desenvolvido utilizando HTML, CSS e JavaScript para criar uma interface amigável e funcional. Além disso, o projeto envolveu o uso de ferramentas como VsCode para desenvolvimento, GitHub para controle de versão, pip para gerenciamento de dependências e PyInstaller para empacotamento da aplicação."
+        nome: "Data Analytics Professional Certificate",
+        instituicao: "Google & CIEE / Coursera",
+        ano: "2025",
+        status: "Em andamento"
     },
     {
-        nome: "Aplicação de Controle de Estoque",
-        tecnologias: ["Python", "Tkinter", "fpdf"],
-        conhecimentos: "VsCode, GitHub, pip, PyInstaller,...",
-        descricao: "Aplicação de Controle de Estoque é um projeto que permite aos usuários gerenciar o estoque de uma loja ou empresa. A aplicação oferece funcionalidades para adicionar, editar e remover produtos, além de calcular o valor total do estoque e gerar relatórios. O projeto foi desenvolvido utilizando HTML, CSS e JavaScript para criar uma interface intuitiva e responsiva. Ferramentas como VsCode foram utilizadas para o desenvolvimento, GitHub para controle de versão, pip para gerenciamento de dependências e PyInstaller para empacotamento da aplicação."
-    }
+        nome: "Programador Web",
+        instituicao: "IFRS",
+        ano: "2025",
+        status: "Concluído"
+    },
+    {
+        nome: "SQL na Prática",
+        instituicao: "NDD",
+        ano: "2025",
+        status: "Concluído"
+    },
+    {
+        nome: "Assistente Administrativo",
+        instituicao: "IFRS",
+        ano: "2025",
+        status: "Concluído"
+    },
 ];
 
-const caixa = document.getElementById("caixa");
-  caixa.innerText = "Esse texto foi mudado pelo JS";
+// --- FUNÇÃO PARA RENDERIZAR OS CURSOS ---
+function renderizarCursos() {
+    const containerCursos = document.getElementById("lista-certificacoes");
+    if (!containerCursos) return;
 
-const botao = document.getElementById("mudaTexto");
+    containerCursos.innerHTML = "";
 
-botao.addEventListener("click", function() {
-  caixa.innerText = "Você mudou o texto clicando no botão!";
-  caixa.style.backgroundColor = "#f0a";
-});
+    meusCursos.forEach(c => {
+        // Define uma cor sutil para o status (verde para concluído, azul para em andamento)
+        let corStatus = c.status === "Concluído" ? "#059669" : "#2563eb";
+        let fundoStatus = c.status === "Concluído" ? "#ecfdf5" : "#eff6ff";
 
-const input = document.getElementById("nome");
-
-const botaoEnviar = document.getElementById("enviar");
-
-botaoEnviar.addEventListener("click", function() {
-  let texto = input.value;
-  console.log(texto);
-  caixa.innerText = `Olá, ${texto}! Bem-vindo ao meu portfólio!`;
-  caixa.style.backgroundColor = "#0af";
-  input.value = "";
-});
-
-/// --- FUNÇÕES DA API DE LOCALIDADES (IBGE) ---
-
-function inicializarAPILocalidades() {
-    const selectEstado = document.getElementById("select-estado");
-    const selectCidade = document.getElementById("select-cidade");
-    const textoRegiao = document.getElementById("texto-regiao"); // Captura o novo elemento
-
-    if (!selectEstado || !selectCidade || !textoRegiao) return;
-
-    // 1. Carrega os estados ao iniciar
-    carregarEstados(selectEstado);
-
-// Função interna para atualizar a frase na tela
-function atualizarFraseSelecionada() {
-    const estadoNome = selectEstado.options[selectEstado.selectedIndex]?.text;
-    const cidadeNome = selectCidade.value;
-
-    if (selectEstado.value && cidadeNome) {
-         textoRegiao.innerText = `Você selecionou: ${cidadeNome} - ${selectEstado.value} (${estadoNome})`;
-    } else if (selectEstado.value) {
-        textoRegiao.innerText = `Estado selecionado: ${estadoNome}. Agora escolha a cidade.`;
-    } else {
-        textoRegiao.innerText = ""; // Limpa se nenhum estado for selecionado
-    }
+        containerCursos.innerHTML += `
+            <div class="item-curso" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #f1f5f9;">
+                <div>
+                    <strong style="font-size: 1.05rem; color: #0f172a;">${c.nome}</strong>
+                    <p style="font-size: 0.9rem; color: #475569; margin: 2px 0 0 0;">${c.instituicao} — ${c.ano}</p>
+                </div>
+                <span style="font-size: 0.8rem; font-weight: 600; color: ${corStatus}; background-color: ${fundoStatus}; padding: 4px 10px; border-radius: 12px; white-space: nowrap;">
+                    ${c.status}
+                </span>
+            </div>
+        `;
+    });
 }
 
-// 2. Escuta a mudança do Estado
-selectEstado.addEventListener("change", function() {
-    const ufSelecionada = selectEstado.value;
-
-    if (ufSelecionada) {
-        carregarCidades(ufSelecionada, selectCidade);
-    } else {
-        selectCidade.innerHTML = '<option value="">Selecione um estado primeiro</option>';
-        selectCidade.disabled = true;
-    }
-    atualizarFraseSelecionada(); // Atualiza o texto do estado
-});
-
-// 3. Escuta a mudança da Cidade
-selectCidade.addEventListener("change", function() {
-    atualizarFraseSelecionada(); // Atualiza o texto final com a cidade
-});
-}
-
-// Função que procura todos os Estados na API
-function carregarEstados(elementoSelect) {
-    const url = "https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome";
-
-    fetch(url)
-        .then(resposta => resposta.json())
-        .then(estados => {
-            estados.forEach(estado => {
-                const option = document.createElement("option");
-                option.value = estado.sigla;     // Guarda a sigla (ex: MG, SP) como valor interno
-                option.textContent = estado.nome; // Mostra o nome completo no ecrã
-                elementoSelect.appendChild(option);
-            });
-        })
-        .catch(erro => console.error("Erro ao carregar estados:", erro));
-}
-
-// Função que procura as Cidades do Estado selecionado
-function carregarCidades(siglaUF, elementoSelect) {
-    const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${siglaUF}/municipios`;
-
-    // Mensagem temporária enquanto os dados são descarregados
-    elementoSelect.innerHTML = '<option value="">A carregar cidades...</option>';
-    elementoSelect.disabled = true;
-
-    fetch(url)
-        .then(resposta => resposta.json())
-        .then(cidades => {
-            // Limpa a mensagem de carregamento e define a opção padrão
-            elementoSelect.innerHTML = '<option value="">Selecione uma cidade</option>';
-            
-            cidades.forEach(cidade => {
-                const option = document.createElement("option");
-                option.value = cidade.nome;
-                option.textContent = cidade.nome;
-                elementoSelect.appendChild(option);
-            });
-
-            // Ativa novamente a caixa de seleção para o utilizador escolher
-            elementoSelect.disabled = false;
-        })
-        .catch(erro => console.error("Erro ao carregar cidades:", erro));
-}
-
-// --- INICIALIZAÇÃO AUTOMÁTICA ---
-carregarDadosDoPerfil();
+// --- ADICIONE A CHAMADA NO FINAL DO SEU ARQUIVO ---
+carregarDadosProfissionais();
 verificarStatusFormatura();
 renderizarProjetos();
-inicializarAPILocalidades(); 
+renderizarCursos();
