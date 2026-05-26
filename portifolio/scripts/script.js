@@ -73,7 +73,8 @@ let meusProjetos = [
 let habilidadesTecnicas = [
     "Python", "SQL (MySQL / SQL Server)", "Git / GitHub", 
     "Noções de lógica de programação & Estrutura de dados", 
-    "WordPress", "Google Sheets / Pacote Office", "VS Code"
+    "WordPress", "Google Sheets / Pacote Office", "VS Code",
+    "HTML / CSS", "JavaScript" ,"Comunicação e trabalho em equipe"
 ];
 
 // Configuração do cálculo de formatura (Focado na conclusão do técnico em Dezembro/2026)
