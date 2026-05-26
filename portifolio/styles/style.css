@@ -103,9 +103,10 @@ h2 {
 
 /* RESUMO PROFISSIONAL */
 #resumoProfissional {
-    font-size: 1.05rem;
+    font-size: 1.1rem; /* Texto ligeiramente maior para destacar a introdução */
     color: #000;
     text-align: justify;
+    line-height: 1.7; /* Mais espaço entre as linhas para facilitar a leitura */
 }
 
 /* FORMAÇÃO E EXPERIÊNCIA */

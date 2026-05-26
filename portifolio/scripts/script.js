@@ -1,6 +1,6 @@
-// --- DADOS REAIS DO CURRÍCULO (FONTES DE VERDADE) ---
 const NOME = "Gabriel Vinícius de Assis da Silva";
 let tituloProfissional = "Estagiário de TI & Desenvolvedor de Sistemas / Dados";
+let resumoPro = "Sou um profissional em transição de carreira movido pela inovação. Construí uma base sólida de relacionamento com clientes e gestão de rotinas trabalhando por anos no comércio local, experiência que me deu grande inteligência emocional e foco em resultados. Essa bagagem me impulsionou para a área de Tecnologia e Dados. Atualmente, atuo como Estagiário de TI no Clube Indica (remoto), aplicando meus conhecimentos em desenvolvimento e análise de dados. Em paralelo, busco qualificação contínua através da graduação em Ciência de Dados e do técnico em Desenvolvimento de Sistemas. Sou proativo, organizado e pronto para agregar valor a equipes que respiram tecnologia.";
 let resumoBio = "Sou um profissional em início de carreira na área de Tecnologia da Informação, atualmente atuando como estagiário de TI no Clube Indica (remoto). Tenho experiência prática em criação de landing pages com WordPress, análise e organização de dados no Google Sheets. Estou cursando graduação em Ciência de Dados e técnico em Desenvolvimento de Sistemas, além de possuir certificações em programação e SQL. Tenho facilidade em aprender novas tecnologias, sou proativo, organizado e gosto de resolver problemas de forma prática e colaborativa.";
 
 // Lista das suas duas formações atuais
@@ -17,7 +17,6 @@ let formacoes = [
     }
 ];
 
-// Sua experiência na área técnica
 let experiencias = [
     {
         cargo: "Estagiário de TI",
@@ -32,7 +31,6 @@ let experiencias = [
     }
 ];
 
-// Seus projetos para a vitrine (Adicione aqui os links reais do seu GitHub)
 let meusProjetos = [
     {
         titulo: "Aplicação de Estacionamento",
@@ -72,7 +70,6 @@ let meusProjetos = [
     },
 ];
 
-// Suas competências mapeadas do PDF
 let habilidadesTecnicas = [
     "Python", "SQL (MySQL / SQL Server)", "Git / GitHub", 
     "Noções de lógica de programação & Estrutura de dados", 
@@ -92,6 +89,7 @@ function carregarDadosProfissionais() {
     // Injeta os dados de cabeçalho e resumo
     document.getElementById("meuNome").innerText = NOME;
     document.getElementById("tituloProfissional").innerText = tituloProfissional;
+    document.getElementById("resumoPessoal").innerText = resumoPro;
     document.getElementById("resumoProfissional").innerText = resumoBio;
 
     // Renderiza a lista de Formações Acadêmicas
@@ -165,7 +163,7 @@ function renderizarProjetos() {
         `;
     });
 }
-// ARRAY DE CURSOS ADICIONAIS (Mapeados do seu currículo)
+// ARRAY DE CURSOS ADICIONAIS
 let meusCursos = [
     {
         nome: "Data Analytics Professional Certificate",
