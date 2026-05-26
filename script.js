@@ -45,17 +45,17 @@ let meusProjetos = [
         linkGithub: "https://github.com/GabrielAssisDev/padaria_ebac" 
     },
     {
-        titulo: "Cadastro de Clientes",
-        descricao: "Software intuitivo e responsivo voltado para o gerenciamento de produtos, controle de quantidades em estoque e geração de relatórios práticos.",
-        tecnologias: ["Python"],
-        linkGithub: "https://github.com/GabrielAssisDev/agenda_de_dados.py" 
+    titulo: "Sistema de Agenda de Contatos (CRUD)",
+    descricao: "Aplicação interativa desenvolvida em Python para gerenciamento completo de contatos. O sistema implementa o conceito de CRUD em memória, permitindo cadastrar, listar, atualizar e deletar dados detalhados como endereço, e-mail e WhatsApp por meio de uma interface em terminal.",
+    tecnologias: ["Python", "Lógica de Programação", "Estruturas de Dados"],
+    linkGithub: "https://github.com/GabrielAssisDev/agenda_de_dados.py"
     },
     {
-        titulo: "WGRR Motors - Site Oficial",
-        descricao: "Software intuitivo e responsivo voltado para o gerenciamento de produtos, controle de quantidades em estoque e geração de relatórios práticos.",
-        tecnologias: ["HTML", "CSS", "JavaScript"],
-        linkGithub: "https://github.com/GabrielAssisDev/wgrr_motors_site_oficial" 
-    },
+    titulo: "Plataforma Web WGRR Motors",
+    descricao: "Desenvolvimento de uma aplicação web completa (Full Stack) para uma concessionária de motocicletas. O sistema conta com uma interface responsiva para exposição de veículos e um painel administrativo integrado a um servidor local para realizar operações completas de CRUD (cadastro, leitura, atualização e exclusão de anúncios de motos).",
+    tecnologias: ["HTML/CSS", "JavaScript", "Node.js", "Express"],
+    linkGithub: "https://github.com/GabrielAssisDev/wgrr_motors_site_oficial"
+    }, 
     {
         titulo: "Livros publicados em 2023",
         descricao: "Lista de livros publicados pelo autor em 2023.",
@@ -63,11 +63,11 @@ let meusProjetos = [
         linkGithub: "https://github.com/GabrielAssisDev/books_of_publication_2023"
     },
     {
-        titulo: "Agenda de Dados",
-        descricao: "Sistema de cadastro de endereços, telefones e e-mails, com funcionalidades de cadastrar, editar e excluir.",
-        tecnologias: ["Python"],
-        linkGithub: "https://github.com/GabrielAssisDev/agenda_de_dados.py"
-    },
+    titulo: "Jogo de RPG Baseado em Texto",
+    descricao: "Um jogo de aventura interativo desenvolvido em Python. O projeto explora o conceito de árvores de decisão complexas através do aninhamento profundo de estruturas condicionais, onde cada escolha da Inteligência ou ação da jogadora gera múltiplos caminhos, finais alternativos e mecânicas de game over.",
+    tecnologias: ["Python", "Estruturas Condicionais", "Lógica de Jogos"],
+    linkGithub: "https://github.com/GabrielAssisDev/jogo_texto_py"
+    }
 ];
 
 let habilidadesTecnicas = [
