@@ -1,7 +1,7 @@
 const NOME = "Gabriel Vinícius de Assis da Silva";
 let tituloProfissional = "Estagiário de TI & Desenvolvedor de Sistemas / Dados";
-let resumoPro = "Sou um profissional em transição de carreira movido pela inovação. Construí uma base sólida de relacionamento com clientes e gestão de rotinas trabalhando por anos no comércio local, experiência que me deu grande inteligência emocional e foco em resultados. Essa bagagem me impulsionou para a área de Tecnologia e Dados. Atualmente, atuo como Estagiário de TI no Clube Indica (remoto), aplicando meus conhecimentos em desenvolvimento e análise de dados. Em paralelo, busco qualificação contínua através da graduação em Ciência de Dados e do técnico em Desenvolvimento de Sistemas. Sou proativo, organizado e pronto para agregar valor a equipes que respiram tecnologia.";
-let resumoBio = "Sou um profissional em início de carreira na área de Tecnologia da Informação, atualmente atuando como estagiário de TI no Clube Indica (remoto). Tenho experiência prática em criação de landing pages com WordPress, análise e organização de dados no Google Sheets. Estou cursando graduação em Ciência de Dados e técnico em Desenvolvimento de Sistemas, além de possuir certificações em programação e SQL. Tenho facilidade em aprender novas tecnologias, sou proativo, organizado e gosto de resolver problemas de forma prática e colaborativa.";
+let resumoPro = "Olá! Sou o Gabriel Vinícius, estudante de Ciência de Dados e Desenvolvimento de Sistemas. Sou um profissional em transição de carreira movido pela inovação. Construí uma base sólida de relacionamento com clientes e gestão de rotinas trabalhando por anos no comércio local, experiência que me deu grande inteligência emocional e foco em resultados. Essa bagagem me impulsionou para a área de Tecnologia e Dados. Atualmente, atuo como Estagiário de TI no Clube Indica (remoto), aplicando meus conhecimentos em desenvolvimento e análise de dados. Em paralelo, busco qualificação contínua através da graduação em Ciência de Dados e do técnico em Desenvolvimento de Sistemas. Sou proativo, organizado e pronto para agregar valor a equipes que respiram tecnologia";
+let resumoBio = "A minha jornada na tecnologia começou com a vontade de entender como os sistemas funcionam por trás, e hoje divido minha rotina entre a faculdade de Ciência de Dados e o curso técnico em Desenvolvimento de Sistemas. Atualmente, vivo essa teoria na prática como Estagiário de TI no Clube Indica, onde tive a oportunidade de evoluir bastante: comecei estruturando bancos de dados no Google Sheets e integrando landing pages em WordPress via APIs com TypeScript. Com o tempo, passei a apoiar a transição para o nosso sistema próprio e a prestar suporte direto aos clientes. Hoje, também trago a inovação para o time usando IA Generativa (ChatGPT) e design estratégico com o Canva para cuidar da nossa presença digital no Instagram. Sou alguém que tem facilidade com números, um perfil super organizado e que adora o desafio de transformar problemas complexos em soluções simples e eficientes.";
 
 // Lista das suas duas formações atuais
 let formacoes = [
@@ -18,15 +18,33 @@ let formacoes = [
 ];
 
 let experiencias = [
+
+    {
+        cargo: "Balconista/Operador de Caixa",
+        empresa: "Pastelaria Avenida",
+        periodo: "09/2016 - Atual",
+        tarefas: [
+            "Gestão e Organização: Atuação no controle financeiro diário, abertura e fechamento de caixa e monitoramento de fluxo de vendas, consolidando forte facilidade com números e raciocínio lógico aplicado.",
+            "Comunicação e Resolução de Problemas: Longa experiência no atendimento direto ao público, desenvolvendo inteligência emocional, excelente comunicação interpessoal e agilidade na resolução de conflitos cotidianos."
+        ]
+    },
+
     {
         cargo: "Estagiário de TI",
         empresa: "Clube Indica (Remoto)",
         periodo: "09/2025 - Atual",
         tarefas: [
-            "Criação e manutenção de landing pages utilizando WordPress.",
-            "Análise e organização de dados no Google Sheets.",
-            "Consultas e ajustes em bancos de dados.",
-            "Apoio à equipe em novos projetos de TI e testes de sistemas."
+            "<strong>Evolução Técnica & Arquitetura de Dados (Fase Inicial)</strong>",
+            "Modelagem de Dados: Criação, estruturação e gerenciamento de bancos de dados baseados em Google Sheets para a consolidação e agrupamento de dados operacionais da empresa.",
+            "Integrações com TypeScript: Desenvolvimento de conexões e integrações via API utilizando TypeScript, interligando as landing pages em WordPress desenvolvidas do zero aos bancos de dados, automatizando o fluxo de informações.",
+            "Qualidade de Dados: Execução de consultas estruturadas para auditoria, limpeza e validação da integridade das informações coletadas.",
+            "<strong>Suporte, Regras de Negócio & Transição (Segunda Fase)</strong>",
+            "Migração de Sistemas: Atuação ativa no processo de transição do fluxo legado para o sistema próprio e exclusivo do Clube Indica.",
+            "Suporte Especializado: Atendimento e suporte técnico de nível intermediário aos clientes da plataforma, auxiliando na resolução de problemas complexos de usabilidade e infraestrutura.",
+            "Análise de Negócios: Mapeamento de feedbacks e dores dos usuários no novo sistema, colaborando com a equipe de engenharia nos testes de software e homologação de melhorias.",
+            "<strong>Inteligência Artificial & Operações Digitais (Fase Atual)</strong>",
+            "Engenharia de Prompts: Utilização de Inteligência Artificial Generativa (ChatGPT) para a criação e concepção de imagens estratégicas alinhadas aos objetivos de negócio da marca.",
+            "Design & Publicação: Refinamento visual de criativos através do Canva e gerenciamento técnico do pipeline de postagens e presença digital no Instagram oficial da empresa."
         ]
     }
 ];
@@ -58,7 +76,7 @@ let meusProjetos = [
     }, 
     {
         titulo: "Livros publicados em 2023",
-        descricao: "Lista de livros publicados pelo autor em 2023.",
+        descricao: "Lista de livros publicados pelos autores em 2023.",
         tecnologias: ["Python"],
         linkGithub: "https://github.com/GabrielAssisDev/books_of_publication_2023"
     },
@@ -74,7 +92,7 @@ let habilidadesTecnicas = [
     "Python", "SQL (MySQL / SQL Server)", "Git / GitHub", 
     "Noções de lógica de programação & Estrutura de dados", 
     "WordPress", "Google Sheets / Pacote Office", "VS Code",
-    "HTML / CSS", "JavaScript" ,"Comunicação e trabalho em equipe"
+    "HTML / CSS", "JavaScript", "API" ,"Comunicação e trabalho em equipe"
 ];
 
 // Configuração do cálculo de formatura (Focado na conclusão do técnico em Dezembro/2026)
